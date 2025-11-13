@@ -4,13 +4,13 @@ mixin Payable {
   }
 
   void processPayment(double amount) {
-    print("Payment processed: \$$amount"); 
+    print("Payment processed: \$$amount");
   }
 }
 
 mixin Reportable {
   String generateReport(String employeeName, String department) {
-    return "Monthly report for $employeeName in the $department department."; 
+    return "Monthly report for $employeeName in the $department department.";
   }
 }
 
@@ -28,15 +28,15 @@ abstract class Employee {
     print("${getJobTitle()}: $name (ID: $id, Department: $department)");
     print("Base Salary: \$$getBaseSalary()");
   }
+}
 
 class Manager extends Employee with Payable, Reportable {
   int teamSize;
   
-  
   Manager(String name, String id, String department, this.teamSize) : super(name, id, department);
 
   @override
-  String getJobTitle() => "Manager";
+  String getJobTitle() => "Manager"; 
 
   @override
   double getBaseSalary() => 8000.0; 
@@ -55,7 +55,6 @@ class Developer extends Employee with Payable {
 }
 
 void main() {
-  // Create instances
   var manager = Manager("John Smith", "M001", "IT", 5);
   var dev = Developer("Alice Johnson", "D001", "IT", "Dart");
 
@@ -72,7 +71,6 @@ void main() {
   print("--- Developer: ${dev.name} ---");
   dev.displayInfo();
   
-
   double dSalary = dev.calculateSalary(dev.getBaseSalary(), 500.0);
   print("Total Salary (Base + Bonus): \$$dSalary");
   dev.processPayment(dSalary);
