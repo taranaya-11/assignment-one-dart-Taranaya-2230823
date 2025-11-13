@@ -1,5 +1,3 @@
-// Question 5: Advanced Features & Mixins
-
 mixin Payable {
   double calculateSalary(double baseSalary, double bonus) {
     if (baseSalary < 0 || bonus < 0) {
